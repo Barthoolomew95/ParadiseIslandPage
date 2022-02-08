@@ -1,0 +1,158 @@
+@import './colors';
+@import './components';
+@import './mixins';
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.6rem;
+}
+// navigation
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 1em;
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1000;
+	&:focus {
+		outline: none;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+	}
+	&:hover {
+		.burger-btn__bars::after,
+		.burger-btn__bars::before {
+			width: 100%;
+		}
+	}
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 30px;
+	}
+	&__bars,
+	&__bars::before,
+	&__bars::after {
+		@include burgerBtn;
+	}
+	&__bars {
+		width: 100%;
+
+		&::after {
+			top: 13px;
+			width: 60%;
+		}
+		&::before {
+			top: 27px;
+			width: 30%;
+			transition-delay: 0.1s;
+		}
+	}
+}
+
+//HEADER
+.header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2em;
+	height: 75vh;
+	text-align: center;
+	color: $pure-white;
+	@include heroImages('../img/beach-g9c6157232_640.jpg');
+	background-attachment: scroll;
+
+	&__heading {
+		font-family: 'Dancing Script';
+		font-size: 4.8rem;
+		font-weight: 300;
+	}
+	&__text {
+		font-size: 1.4rem;
+	}
+	&__btn {
+		margin-top: 2em;
+		padding: 0.8em 1.6em;
+		font-size: 1.4rem;
+		background: $pure-white;
+		border: none;
+		border-radius: 8px;
+		color: $dark;
+		text-decoration: none;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&::before {
+			position: absolute;
+			background-color: $light-white;
+		}
+	}
+}
+
+//navigation
+
+.nav {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: $blue-gradient-solid;
+	z-index: 100;
+	&__item {
+		position: relative;
+		display: block;
+		color: $pure-white;
+	}
+}
+
+// ========================
+// MEDIA
+//=========================
+
+@media (min-width: 768px) {
+	.white-block {
+		height: 5rem;
+		width: 45%;
+	}
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+}
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+	.header {
+		background-image: $blue-gradient, url('../img/beach-g0deb2612c_1920.jpg');
+		&__heading {
+			font-size: 10rem;
+		}
+	}
+}

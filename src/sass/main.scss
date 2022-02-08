@@ -1,6 +1,7 @@
 @import './colors';
 @import './components';
 @import './mixins';
+@import './animations';
 *,
 ::before,
 ::after {
@@ -111,16 +112,43 @@ body {
 	top: 0;
 	height: 100vh;
 	width: 100%;
+	transform: translateX(100%);
+	transition: transform 0.3s;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-image: $blue-gradient-solid;
 	z-index: 100;
+
+	&--active {
+		transform: translateX(0%);
+	}
 	&__item {
 		position: relative;
 		display: block;
+		margin: 0.5em 0;
+		padding: 0.5em 2em;
+		font-size: 2.8rem;
 		color: $pure-white;
+		text-decoration: none;
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3px;
+			height: 100%;
+			transform: scaleY(0);
+			transition: transform 0.3s;
+			background-color: $pure-white;
+			content: '';
+		}
+		&:hover::before {
+			transform: scaleY(1);
+		}
 	}
+}
+.nav-items-animation {
+	animation: navItemsAimation 1s both;
 }
 
 // ========================

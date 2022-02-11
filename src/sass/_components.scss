@@ -24,12 +24,13 @@
 .btn-special-animation {
 	position: relative;
 	transition: background-color 0.3s;
-	overflow: hidden;
+	// overflow: hidden;
 	z-index: 0;
 	&::before {
+		background-color: #fff;
 		display: block;
 		content: '';
-		position: relative;
+		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;

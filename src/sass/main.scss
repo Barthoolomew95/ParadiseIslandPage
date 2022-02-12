@@ -18,6 +18,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1.6rem;
 }
+
 // navigation
 .burger-btn {
 	position: fixed;
@@ -62,6 +63,11 @@ body {
 			transition-delay: 0.1s;
 		}
 	}
+}
+.black-bars-color,
+.black-bars-color::before,
+.black-bars-color::after {
+	background-color: $dark;
 }
 
 //HEADER
@@ -422,6 +428,45 @@ body {
 		}
 	}
 }
+//footer
+.footer {
+	color: $pure-white;
+	background-color: $dark;
+	.wrapper {
+		padding: 6em 2em 2em;
+	}
+	&__box {
+		font-size: 1.4rem;
+	}
+	&__box-desktop {
+		display: none;
+	}
+	&__box-title {
+		margin-bottom: 1em;
+		font-size: 3rem;
+		text-transform: uppercase;
+	}
+	&__box-social {
+		margin: 2em 0 1em;
+	}
+	&__box-link {
+		padding: 0 0.3em;
+		font-size: 3.6rem;
+		color: $pure-white;
+		text-decoration: none;
+		transition: color 0.3s;
+		&:first-child {
+			padding-left: 0;
+		}
+		&:hover {
+			color: $light-white;
+		}
+	}
+	&__bottom-text {
+		padding: 2em;
+		text-align: center;
+	}
+}
 
 // ========================
 // MEDIA
@@ -516,6 +561,35 @@ body {
 		&__card {
 			margin: 1em;
 			width: 45%;
+		}
+	}
+	.footer {
+		&__boxes {
+			display: flex;
+			justify-content: space-between;
+		}
+		&__box-desktop {
+			display: block;
+		}
+		&__box {
+			margin: 0 2em;
+			width: 25%;
+			&:first-child {
+				width: 50%;
+			}
+		}
+		&__box-title {
+			font-size: 2.4rem;
+		}
+		&__box-list {
+			list-style: none;
+		}
+		&__box-list-item {
+			margin-bottom: 1em;
+			a {
+				color: $light-white;
+				text-decoration: none;
+			}
 		}
 	}
 }
